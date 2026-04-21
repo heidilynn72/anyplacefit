@@ -16,15 +16,17 @@
 
   /* ===== NAV ===== */
   nav {
-    max-width: 900px;
+    position: relative;
+    z-index: 10;
+    max-width: calc(900px - 4rem);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     height: 176px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    border-bottom: 0.5px solid #e5e5e5;
+    background: transparent;
   }
   .nav-logo { flex-shrink: 1; min-width: 0; display: flex; align-items: center; }
   .nav-logo a { display: block; max-width: 100%; }
@@ -54,26 +56,27 @@
   }
 
   /* ===== PAGES ===== */
-  .page { display: none; padding: 2rem 0 4rem; }
+  .page { display: none; padding: 0 0 4rem; }
   .page.active { display: block; }
+  .hero-section { padding: 0; max-width: none; margin: 0; }
 
   /* ===== HOME — HERO ===== */
   .hero {
     border-radius: 16px;
     padding: 2.5rem;
-    margin: 0 2rem;
+    padding-top: calc(2.5rem + 176px);
+    margin: -176px auto 0;
     display: flex;
     gap: 2rem;
     align-items: stretch;
     background:
-      radial-gradient(ellipse at 0% 0%, rgba(15,110,86,1) 0%, transparent 48%),
-      radial-gradient(ellipse at 100% 0%, rgba(212,83,126,1) 0%, transparent 46%),
-      radial-gradient(ellipse at 100% 100%, rgba(186,117,23,1) 0%, transparent 46%),
-      radial-gradient(ellipse at 0% 100%, rgba(55,138,221,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 0% 0%, rgba(186,117,23,1) 0%, transparent 48%),
+      radial-gradient(ellipse at 100% 0%, rgba(55,138,221,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 100% 100%, rgba(15,110,86,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 0% 100%, rgba(212,83,126,1) 0%, transparent 46%),
       radial-gradient(ellipse at 50% 50%, rgba(127,119,221,0.9) 0%, transparent 55%),
       #e8e0f0;
     max-width: calc(900px - 4rem);
-    margin: 0 auto;
   }
   .hero-text { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
   .hero-badge {
@@ -249,9 +252,9 @@
     background: #E1F5EE;
     border-radius: 16px;
     padding: 3rem 2rem 0;
-    margin: 0 2rem;
+    padding-top: calc(3rem + 176px);
+    margin: -176px auto 0;
     max-width: calc(900px - 4rem);
-    margin: 0 auto;
     text-align: center;
     overflow: hidden;
   }
@@ -473,15 +476,19 @@
   .about-hero {
     border-radius: 16px;
     padding: 3rem;
+    padding-top: calc(3rem + 176px);
     display: flex;
     gap: 2.5rem;
     align-items: center;
     max-width: calc(900px - 4rem);
-    margin: 0 auto;
+    margin: -176px auto 0;
     background:
-      radial-gradient(ellipse at 0% 0%, rgba(15,110,86,0.6) 0%, transparent 50%),
-      radial-gradient(ellipse at 100% 100%, rgba(55,138,221,0.5) 0%, transparent 50%),
-      #e8f4f0;
+      radial-gradient(ellipse at 0% 0%, rgba(15,110,86,1) 0%, transparent 48%),
+      radial-gradient(ellipse at 100% 0%, rgba(212,83,126,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 100% 100%, rgba(186,117,23,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 0% 100%, rgba(55,138,221,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 50% 50%, rgba(127,119,221,0.9) 0%, transparent 55%),
+      #e8e0f0;
   }
   .about-avatar {
     width: 160px;
@@ -596,14 +603,17 @@
   .contact-hero {
     border-radius: 16px;
     padding: 3rem 2rem;
+    padding-top: calc(3rem + 176px);
     text-align: center;
     max-width: calc(900px - 4rem);
-    margin: 0 auto;
+    margin: -176px auto 0;
     background:
-      radial-gradient(ellipse at 0% 0%, rgba(15,110,86,0.7) 0%, transparent 50%),
-      radial-gradient(ellipse at 100% 100%, rgba(55,138,221,0.5) 0%, transparent 50%),
-      radial-gradient(ellipse at 100% 0%, rgba(212,83,126,0.35) 0%, transparent 50%),
-      #e8f4f0;
+      radial-gradient(ellipse at 0% 0%, rgba(15,110,86,1) 0%, transparent 48%),
+      radial-gradient(ellipse at 100% 0%, rgba(212,83,126,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 100% 100%, rgba(186,117,23,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 0% 100%, rgba(55,138,221,1) 0%, transparent 46%),
+      radial-gradient(ellipse at 50% 50%, rgba(127,119,221,0.9) 0%, transparent 55%),
+      #e8e0f0;
   }
   .contact-hero h1 {
     font-size: 30px;
@@ -788,9 +798,9 @@
   </div>
   <div class="nav-links">
     <a id="tab-home" onclick="showPage('home')">Home</a>
-    <a id="tab-reviews" onclick="showPage('reviews')">Reviews</a>
     <a id="tab-about" onclick="showPage('about')">About</a>
     <a id="tab-contact" onclick="showPage('contact')">Contact</a>
+    <a id="tab-reviews" onclick="showPage('reviews')">Reviews</a>
   </div>
   <button class="nav-cta" onclick="showPage('contact')">Book a call</button>
 </nav>
@@ -798,7 +808,7 @@
 <!-- ===== PAGE: HOME ===== -->
 <div id="page-home" class="page active">
 
-  <section style="padding-top: 2rem;">
+  <section class="hero-section">
     <div class="hero">
       <div class="hero-text">
         <span class="hero-badge">Mobile personal trainer</span>
@@ -807,23 +817,23 @@
           <span class="line">Your pace.</span>
           <em>Your place.</em>
         </h1>
-        <p>Specialized fitness coaching for older adults and people with physical limitations — delivered wherever you are most comfortable.</p>
+        <p>Primarily focused on, but not limited to, fitness coaching for older adults and people who may have extra physical limitations or challenges. No need to have a gym membership; I will come to you!</p>
         <button class="hero-btn" onclick="showPage('contact')">Get started</button>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-num">100%</div>
-          <div class="hero-stat-label">tailored to you</div>
+          <div class="hero-stat-label">personalized for you</div>
         </div>
         <div class="hero-divider"></div>
         <div class="hero-stat">
           <div class="hero-stat-num">Mobile</div>
-          <div class="hero-stat-label">we come to you</div>
+          <div class="hero-stat-label">I come to you</div>
         </div>
         <div class="hero-divider"></div>
         <div class="hero-stat">
           <div class="hero-stat-num">Adaptive</div>
-          <div class="hero-stat-label">any ability level</div>
+          <div class="hero-stat-label">for all bodies</div>
         </div>
       </div>
     </div>
@@ -832,14 +842,14 @@
   <section>
     <div class="section-label">WHAT I OFFER</div>
     <h2>Services built around you</h2>
-    <p class="section-sub">Every session is adapted to your unique needs, goals, and comfort level — no gym required.</p>
+    <p class="section-sub">Every session is personalized to your unique needs, goals, and fitness level. No gym required.</p>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <h3>1-on-1 in-person training</h3>
-        <p>Private sessions at your home, community center, or preferred outdoor space.</p>
+        <p>At your own home, community space, gym (if allowed), or an outdoor space of your choosing.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
@@ -853,14 +863,14 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Group classes</h3>
-        <p>Small, gentle group sessions designed for seniors — social, fun, and safe.</p>
+        <p>Whether it's a dynamic high intensity class, a gentle class for seniors, or a low intensity class for those individuals who are just starting their fitness journey; they will be social, fun, and safe.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Adaptive fitness</h3>
-        <p>Specialized programming for physical limitations and post-rehab recovery.</p>
+        <p>Special programming to accommodate those who have additional physical limitations and challenges, or for those who are in post-rehab recovery.</p>
       </div>
     </div>
   </section>
@@ -898,7 +908,7 @@
 
 <!-- ===== PAGE: REVIEWS ===== -->
 <div id="page-reviews" class="page">
-  <section style="padding-top: 2rem;">
+  <section class="hero-section">
     <div class="reviews-hero">
       <div style="padding: 0 2rem 0;">
         <div class="stars">★★★★★</div>
@@ -951,7 +961,7 @@
 
 <!-- ===== PAGE: ABOUT ===== -->
 <div id="page-about" class="page">
-  <section style="padding-top: 2rem;">
+  <section class="hero-section">
     <div class="about-hero">
       <div class="about-avatar">👋</div>
       <div class="about-text">
@@ -1024,7 +1034,7 @@
 
 <!-- ===== PAGE: CONTACT ===== -->
 <div id="page-contact" class="page">
-  <section style="padding-top: 2rem;">
+  <section class="hero-section">
     <div class="contact-hero">
       <h1>Let's get in touch</h1>
       <p>Ready to take the first step? Reach out and let's have a friendly, no-pressure conversation about your goals.</p>
